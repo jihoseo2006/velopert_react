@@ -6,13 +6,10 @@
 //16. useEffect를 사용하여 마운트/언마운트/업데이트시 할 작업 설정하기
 import React, { useEffect } from "react";
 
-function User({ user, onRemove, onToggle }) {
+const User = React.memo(function User({ user, onRemove, onToggle }) {
   useEffect(() => {
-    console.log('컴포넌트가 화면에 나타남')
-    return () => {
-      console.log('컴포넌트가 화면에서 사라짐');
-    };
-  },[]);
+    // console.log(user);
+  });
   //onRemove가 "id가 _인 객체를 삭제해라" 라는 역할을 가지고 있음.
   return (
     <div>
@@ -30,21 +27,21 @@ function User({ user, onRemove, onToggle }) {
       <button onClick={() => onRemove(user.id)}>삭제</button>
     </div>
   );
-}
+});
 
-function UserList({ users, onRemove,onToggle }) {
+function UserList({ users, onRemove, onToggle }) {
   return (
     <div>
       {users.map(user => (
-        <User 
-          user={user} 
-          key={user.id} 
-          onRemove={onRemove} 
-          onToggle={onToggle}  
+        <User
+          user={user}
+          key={user.id}
+          onRemove={onRemove}
+          onToggle={onToggle}
         />
       ))}
     </div>
   );
 }
 
-export default UserList;
+export default React.memo(UserList);

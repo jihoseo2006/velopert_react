@@ -1,8 +1,9 @@
 //13. 배열에 항목 추가하기
+//~ 19. React.memo 를 사용한 컴포넌트 리렌더링 방지
 
 import React from "react";
 
-function CreateUser({ username, email, onChange, onCreate }) {
+const CreateUser = ({ username, email, onChange, onCreate }) => {
   return (
     <div>
       <input
@@ -20,6 +21,6 @@ function CreateUser({ username, email, onChange, onCreate }) {
       <button onClick={onCreate}>등록</button>
     </div>
   );
-}
+};
 
-export default CreateUser;
+export default React.memo(CreateUser);
