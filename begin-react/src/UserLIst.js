@@ -5,12 +5,9 @@
 //15. 배열에 항목 수정하기
 //16. useEffect를 사용하여 마운트/언마운트/업데이트시 할 작업 설정하기
 //22. Context API 를 사용한 전역 값 관리
-import React, { useContext, useEffect } from "react";
-import { UserDispatch } from "./App";
+import React from 'react';
 
 const User = React.memo(function User({ user }) {
-  const dispatch = useContext(UserDispatch);
-  //onRemove가 "id가 _인 객체를 삭제해라" 라는 역할을 가지고 있음.
   return (
     <div>
       <b
@@ -18,19 +15,13 @@ const User = React.memo(function User({ user }) {
           cursor: 'pointer',
           color: user.active ? 'green' : 'black'
         }}
-        onClick={() => {
-          dispatch({type: 'TOGGLE_USER', id: user.id});
-        }}
+        onClick={() => {}}
       >
         {user.username}
       </b>
       &nbsp;
       <span>({user.email})</span>
-      <button onClick={() => {
-        dispatch({type: 'REMOVE_USER', id: user.id})
-      }}>
-        삭제
-      </button>
+      <button onClick={() => {}}>삭제</button>
     </div>
   );
 });

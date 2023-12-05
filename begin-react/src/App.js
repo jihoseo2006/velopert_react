@@ -1,4 +1,5 @@
 //17. useMemo 를 사용하여 연산한 값 재사용하기
+//23. Immer 를 사용한 더 쉬운 불변성 관리
 import React, { useRef, useReducer, useMemo, useCallback } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
